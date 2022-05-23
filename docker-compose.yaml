@@ -287,7 +287,7 @@ services:
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_LISTENERS: PLAINTEXT://:9092
-    depends_on: 
+    depends_on:
       - zookeeper
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -305,4 +305,5 @@ services:
 
 
 volumes:
+  postgres-db-volume:
   mongodb_data_container:
