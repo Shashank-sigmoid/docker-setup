@@ -81,7 +81,7 @@ services:
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD", "pg_isready", "-U", "airflow" ]
+      test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 5s
       retries: 5
     restart: always
@@ -91,7 +91,7 @@ services:
     expose:
       - 6379
     healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
+      test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 30s
       retries: 50
@@ -295,10 +295,12 @@ services:
 
   mongodb_container:
     image: mongo:latest
+    command: ["--bind_ip_all"]
     container_name: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+      SPRING_DATA_MONGODB_URI: mongodb://host.docker.internal:27017
     ports:
       - "27017:27017"
     volumes:
@@ -307,3 +309,4 @@ services:
 volumes:
   postgres-db-volume:
   mongodb_data_container:
+
