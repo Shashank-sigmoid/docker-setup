@@ -19,7 +19,7 @@ def query_8():
         # Fetching data from the nadaq API
         qd.ApiConfig.api_key = "Ji81cMm63Vm7UxPXq6CZ"
 
-        with open("/Queries/Query_8_GDP.csv", "r") as file:
+        with open("/Query_8_GDP.csv", "r") as file:
             reader = csv.reader(file)
             k = 0
             for row in reader:
