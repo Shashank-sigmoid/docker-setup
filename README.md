@@ -1,4 +1,4 @@
-# docker-setup
+# Docker Setup
 
 
 1. Follow this [Link](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html#docker-compose-env-variables)
