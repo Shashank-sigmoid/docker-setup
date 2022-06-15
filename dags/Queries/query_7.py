@@ -27,7 +27,7 @@ def query_7():
         }
 
         # Reading the name of the countries from a CSV file using with open method
-        with open("/Users/shashankdey/PycharmProjects/Mock_Project/Queries/countries.csv", "r") as file:
+        with open("/countries.csv", "r") as file:
             reader = csv.reader(file)
             k = 0
             for row in reader:

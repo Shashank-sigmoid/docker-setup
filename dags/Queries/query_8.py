@@ -1,5 +1,4 @@
 import quandl as qd
-import time as t
 import pymongo as pm
 import csv
 
@@ -21,7 +20,7 @@ def query_8():
         qd.ApiConfig.api_key = "Ji81cMm63Vm7UxPXq6CZ"
 
         # Reading the name of the countries and their codes from a CSV file using with open method
-        with open("/Users/shashankdey/PycharmProjects/Mock_Project/Queries/Query_8_GDP.csv", "r") as file:
+        with open("/Query_8_GDP.csv", "r") as file:
             reader = csv.reader(file)
             k = 0
             for row in reader:
@@ -38,7 +37,7 @@ def query_8():
                     # Country: (String) Name of the country
                     # Code: (String) Country's code
                     # Date: (Date) Year of the record
-                    # GDP: (INT32) GDP of the country for that given year
+                    # GDP: (Double) GDP of the country for that given year
                     for record in data_dict:
                         entry = {
                             "Country": row[0],
@@ -51,7 +50,6 @@ def query_8():
                     # Document inserted in the collection
                     global_economy.insert_many(data_to_insert)
                     print(f"Data for {row[0]} is successfully added to the database...")
-                    t.sleep(31)
 
     except:
         print("Error in connection")
