@@ -12,6 +12,14 @@ from Queries.query_6 import query_6
 from Queries.query_7 import query_7
 from Queries.query_8 import query_8
 
+# Importing date conversion
+from Date_conversion.date_conversion import date_conversion
+from Date_conversion.donations_date import donations_date
+
+# Importing summary tables
+from Summary_table.summary_table1 import summary_table1
+from Summary_table.summary_table2 import summary_table2
+
 PROJECT_ROOT = Path(__file__).parent.absolute()
 QUERIES_FILE = os.path.join(PROJECT_ROOT, "resources/keywords.txt")
 
@@ -63,5 +71,24 @@ with DAG("ProjectRun", description="Hello World DAG",
         python_callable=query_8
     )
 
-    t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8
+    t9 = PythonOperator(
+        task_id="Date_conversion_tweets",
+        python_callable=date_conversion
+    )
+
+    t10 = PythonOperator(
+        task_id="Date_conversion_donations",
+        python_callable=donations_date
+    )
+
+    t11 = PythonOperator(
+        task_id="Summary_table1",
+        python_callable=summary_table1
+    )
+
+    t12 = PythonOperator(
+        task_id="Summary_table2",
+        python_callable=summary_table2
+    )
+    t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8 >> t9 >> t10 >> t11 >> t12
 
