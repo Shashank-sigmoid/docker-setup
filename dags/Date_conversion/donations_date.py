@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 
-def date_conversion():
+def donations_date():
 
     try:
         # Establishing connection with the MongoDB
@@ -39,4 +39,4 @@ def date_conversion():
 
 
 if __name__ == "__main__":
-    date_conversion()
+    donations_date()
