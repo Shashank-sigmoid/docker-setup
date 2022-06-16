@@ -90,5 +90,9 @@ with DAG("ProjectRun", description="Hello World DAG",
         task_id="Summary_table2",
         python_callable=summary_table2
     )
-    t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8 >> t9 >> t10 >> t11 >> t12
+
+    t1 >> t2 >> t3 >> t4 >> t5 >> t9 >> t11 >> t12
+    t7
+    t8
+    t6 >> t10
 
